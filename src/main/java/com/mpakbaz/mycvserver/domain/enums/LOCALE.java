@@ -1,0 +1,35 @@
+package com.mpakbaz.mycvserver.domain.enums;
+
+public enum LOCALE {
+    EN(0),
+    FA(1);
+
+    private final int value;
+
+    private LOCALE(int value) {
+        this.value = value;
+    }
+
+    /**
+     * Get the integer value of this enum value, as defined in the Thrift IDL.
+     */
+    public int getValue() {
+        return value;
+    }
+
+    /**
+     * Find a the enum type by its integer value, as defined in the Thrift IDL.
+     *
+     * @return null if the value is not found.
+     */
+    public static LOCALE findByValue(int value) {
+        switch (value) {
+            case 0:
+                return EN;
+            case 1:
+                return FA;
+            default:
+                return null;
+        }
+    }
+}
