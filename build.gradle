@@ -1,0 +1,88 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.10.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+//apply plugin: 'war'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.pkb'
+version = '0.1.10'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web") {
+       // exclude module: "spring-boot-starter-tomcat"
+    }
+//    compile("org.springframework.boot:spring-boot-starter-jetty")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+
+	compile fileTree(include: ['*.jar'], dir: 'libs')
+
+
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-starter-data-rest')
+    compile('org.springframework.boot:spring-boot-starter-mobile')
+    compile('org.springframework.boot:spring-boot-starter-security')
+    compile('org.springframework.boot:spring-boot-starter-mail')
+    compile('org.springframework.boot:spring-boot-starter-freemarker')
+
+	compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+
+
+    compile('org.modelmapper:modelmapper:1.1.2')
+
+	compile group: 'commons-codec', name: 'commons-codec', version: '1.11'
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
+    compile group: 'com.google.api-client', name: 'google-api-client', version: '1.23.0'
+
+	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.7.0'
+	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.7.0'
+	compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.3'
+	compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.0'
+    compile group: 'com.querydsl', name: 'querydsl-apt', version: '4.1.4'
+
+	compile group: 'org.postgresql', name: 'postgresql', version: '42.2.1'
+	compile group: 'joda-time', name: 'joda-time', version: '2.9.9'
+//	runtime('org.springframework.boot:spring-boot-devtools')
+	runtime('org.postgresql:postgresql')
+
+	compile group: 'org.geolatte', name: 'geolatte-geom', version: '1.2.0'
+
+	compile group: 'commons-io', name: 'commons-io', version: '2.6'
+	compile group: 'org.fluttercode.datafactory', name: 'datafactory', version: '0.8'
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.8.2'
+    compile group: 'javax.json', name: 'javax.json-api', version: '1.1.2'
+
+    //Integrate support for Spatial/GIS data into Hibernate ORM
+    compile group: 'org.hibernate', name: 'hibernate-spatial', version: '5.2.12.Final'
+
+
+    //JTS conforms to the Simple Features Specification for SQL published by the Open GIS Consortium
+    compile group: 'com.vividsolutions', name: 'jts', version: '1.13'
+
+	compileOnly('org.projectlombok:lombok:1.18.4')
+	annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.4'
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+
+	compile 'com.github.kavenegar:kavenegar-java:2.0.3'
+
+	compile 'com.google.firebase:firebase-admin:6.8.1'
+
+
+}
